@@ -1,0 +1,126 @@
+:root{
+    --color_header: #ffffff;
+    --fuente_letra: Arial;
+    --color_palabras_header: #000000;
+    --ancho_header: 100vw;
+    --color_body: #696b6d;
+    --margin_logo: 0 auto 0 2%;
+    --margin_ul_links: 0 4% 0 0;
+    --size_link_header: 1rem;
+    --margin_li_links: 0 8% 0 0;
+    --altura_header: 90px;
+    --color_item_hamburgesa: rgb(238, 163, 25);
+    --color_fondo_menu_hamburgesa_open: #a0a3a5;
+    --padding_menu_hamburgesa: 0 2% 0 0;
+    --color_fondo_menu_hamburgea_close: #6c7880;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+    background-color: var(--color_body);
+}
+
+.header {
+    background-color: var(--color_header);
+    height: var(--altura_header);
+}
+.logo {
+    margin: var(--margin_logo);
+}
+
+
+.label_hamburgesa{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--padding_menu_hamburgesa);
+  height: 100%;  
+}
+
+.list_hamburgesa{
+    padding: var(--padding_menu_hamburgesa);
+    height: 60%;
+    width: auto;
+}
+
+.hamburgesa{
+    display: none;
+}
+
+.hamburgesa:checked + .ul-links{
+    height: calc(100vh - var(--altura_header));
+}
+
+.navbar{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ul-links {
+    background-color: var(--color_fondo_menu_hamburgesa_open);
+    margin: var(--margin_ul_links);
+    top: var(--altura_header);
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 0;
+    overflow: hidden;
+    /* height: calc(100vh - var(--altura_header)); */
+    gap: 20px;
+    font-weight: bold;
+    transition: all .4s;
+    cursor: pointer;
+}
+.li_link {
+    margin: var(--margin_li_links);
+    list-style: none;
+    
+}
+.link{
+    text-decoration: none;
+    color: var(--color_palabras_header);
+    
+}
+
+@media (700px <= width <=2000px){
+    .label_hamburgesa{
+        display: none;
+    }
+
+    .ul-links{
+        position: static;
+        width: 50%;
+        height: auto;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color_header);
+    }
+
+    .li_link{
+        margin: auto;
+        padding: 1% 1% 1% 1%;
+        transition: all .4s ;
+    }
+
+    .li_link:hover{
+        background-color: var(--color_fondo_menu_hamburgea_close);
+    }
+
+    .link{
+        font-size: var(--size_link_header);
+    }
+}
